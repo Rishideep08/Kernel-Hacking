@@ -1,0 +1,1 @@
+We have created a getcount and trace systemcall functions in sysfile.c and, made syscall.c and syscall.h to do the syscall operation from the user mode. We even added the function signature in user.h
