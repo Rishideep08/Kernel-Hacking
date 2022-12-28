@@ -1,0 +1,4257 @@
+('starting', 'build')
+
+**********************************************************************
+
+Test build
+build project using make
+
+**********************************************************************
+Trying to build project using make
+make
+make: 'libmfs.so' is up to date.
+
+
+test build PASSED
+ (build project using make)
+
+('starting', 'shutdown')
+
+**********************************************************************
+
+Test shutdown
+init server and client then call shutdown
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 9579
+/tmp/tmpF_kL9Q/p/server 9579 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 9579
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test shutdown PASSED
+ (init server and client then call shutdown)
+
+('starting', 'creat')
+
+**********************************************************************
+
+Test creat
+creat a file and check with lookup
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 7316
+/tmp/tmpF_kL9Q/p/server 7316 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 7316
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test creat PASSED
+ (creat a file and check with lookup)
+
+('starting', 'write')
+
+**********************************************************************
+
+Test write
+write then read one block
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 7793
+/tmp/tmpF_kL9Q/p/server 7793 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 7793
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+('START BLOCK 1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00END BLOCK 1')
+('START BLOCK 1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00', '\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00END BLOCK 1')
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test write PASSED
+ (write then read one block)
+
+('starting', 'stat')
+
+**********************************************************************
+
+Test stat
+stat a regular file
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 8912
+/tmp/tmpF_kL9Q/p/server 8912 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(3)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(3)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(3)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 8912
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 3
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: got MFS_Stat [size:96 type:0]
+client:: send message 3
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: got MFS_Stat [size:0 type:1]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 3
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: got MFS_Stat [size:4096 type:1]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test stat PASSED
+ (stat a regular file)
+
+('starting', 'overwrite')
+
+**********************************************************************
+
+Test overwrite
+overwrite a block
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 9742
+/tmp/tmpF_kL9Q/p/server 9742 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 9742
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test overwrite PASSED
+ (overwrite a block)
+
+('starting', 'maxfile')
+
+**********************************************************************
+
+Test maxfile
+write largest possible file
+
+**********************************************************************
+total blocks        39
+  inodes            128 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 9858
+/tmp/tmpF_kL9Q/p/server 9858 /home/girish/p4/p4/test.img
+MFS Init2 localhost 9858
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply.server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down server..
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test maxfile PASSED
+ (write largest possible file)
+
+('starting', 'maxfile2')
+
+**********************************************************************
+
+Test maxfile2
+write more blocks than possible
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 6403
+/tmp/tmpF_kL9Q/p/server 6403 /home/girish/p4/p4/test.img
+MFS Init2 localhost 6403
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+31
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+write more than need
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:-4 type:4]
+Retrying MFS_Write1
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+cliserver:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+Hi in maxfilesize check
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverent:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:-3 type:5]
+Retrying  MFS_Read1
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test maxfile2 PASSED
+ (write more blocks than possible)
+
+('starting', 'dir1')
+
+**********************************************************************
+
+Test dir1
+check root for dot entries
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 8822
+/tmp/tmpF_kL9Q/p/server 8822 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---64 0 .:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---64 0 ..:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 8822
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test dir1 PASSED
+ (check root for dot entries)
+
+('starting', 'dir2')
+
+**********************************************************************
+
+Test dir2
+create a new directory and check it
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 9638
+/tmp/tmpF_kL9Q/p/server 9638 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+inode type:: 0, size:: 64
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 testdir:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---64 0 .:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---64 0 ..:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 9638
+MFS_Creat pinum :: 0 path:: testdir type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file testdir
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test dir2 PASSED
+ (create a new directory and check it)
+
+('starting', 'baddir')
+
+**********************************************************************
+
+Test baddir
+try to create a file with a file parent inode
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 8928
+/tmp/tmpF_kL9Q/p/server 8928 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 testdir:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+madda kuduvserver:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 8928
+MFS_Creat pinum :: 0 path:: testdir type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file testdir
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+MFS_Creat pinum :: 1 path:: testfile type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:-1 type:6]
+Successfully created file testfile
+Successfully created file  with rc:: -1
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test baddir PASSED
+ (try to create a file with a file parent inode)
+
+('starting', 'baddir2')
+
+**********************************************************************
+
+Test baddir2
+try to lookup a file with a file parent inode
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 7009
+/tmp/tmpF_kL9Q/p/server 7009 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 testdir:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in the file lookup
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 7009
+MFS_Creat pinum :: 0 path:: testdir type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file testdir
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:-1 type:2]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test baddir2 PASSED
+ (try to lookup a file with a file parent inode)
+
+('starting', 'unlink')
+
+**********************************************************************
+
+Test unlink
+unlink a file
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 8168
+/tmp/tmpF_kL9Q/p/server 8168 /home/girish/p4/p4/test.img
+MFS Init2 localhost 8168
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Failure: MFS_Lookup should fail on an unlinked file
+
+
+test unlink FAILED
+ (unlink a file)
+ MFS_Lookup should fail on an unlinked file
+
+('starting', 'unlink2')
+
+**********************************************************************
+
+Test unlink2
+unlink a directory
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 6197
+/tmp/tmpF_kL9Q/p/server 6197 /home/girish/p4/p4/test.img
+MFS Init2 localhost 6197
+MFS_Creat pinum :: 0 path:: test type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Failure: MFS_Lookup should fail on an unlinked file
+
+
+test unlink2 FAILED
+ (unlink a directory)
+ MFS_Lookup should fail on an unlinked file
+
+('starting', 'empty')
+
+**********************************************************************
+
+Test empty
+unlink a non-empty directory
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 8677
+/tmp/tmpF_kL9Q/p/server 8677 /home/girish/p4/p4/test.img
+MFS Init2 localhost 8677
+MFS_Creat pinum :: 0 path:: testdir type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file testdir
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+MFS_Creat pinum :: 1 path:: testfile type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file testfile
+Successfully created file  with rc:: 1
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Failure: MFS_Unlink should fail on non-empty dir
+
+
+test empty FAILED
+ (unlink a non-empty directory)
+ MFS_Unlink should fail on non-empty dir
+
+('starting', 'name')
+
+**********************************************************************
+
+Test name
+name too long
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 5867
+/tmp/tmpF_kL9Q/p/server 5867 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 5867
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test name PASSED
+ (name too long)
+
+('starting', 'persist')
+
+**********************************************************************
+
+Test persist
+restart server after creating a file
+
+**********************************************************************
+total blocks        36
+  inodes            32 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 8952
+/tmp/tmpF_kL9Q/p/server 8952 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(4)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 8952
+MFS_Creat pinum :: 0 path:: test type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file test
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 4
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:4]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+MFS Init2 localhost 8952
+Starting server on port 8952
+/tmp/tmpF_kL9Q/p/server 8952 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 test:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(5)]
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverclient:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 5
+client:: wait for reply...
+client:: got reply [ rc:1 type:5]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test persist PASSED
+ (restart server after creating a file)
+
+('starting', 'bigdir')
+
+**********************************************************************
+
+Test bigdir
+create a directory with 126 files
+
+**********************************************************************
+total blocks        39
+  inodes            128 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 7493
+/tmp/tmpF_kL9Q/p/server 7493 /home/girish/p4/p4/test.img
+MFS Init2 localhost 7493
+MFS_Creat pinum :: 0 path:: testdir type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file testdir
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+MFS_Creat pinum :: 1 path:: 0 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 0
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 1 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 1
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 2 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 2
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 3 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 3
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 4 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 4
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 5 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 5
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 6 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 6
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 7 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 7
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 8 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 8
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 9 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 9
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 10 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 10
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 11 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 11
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 12 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 12
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 13 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 13
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 14 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 14
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 15 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 15
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 16 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 16
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 17 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 17
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 18 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 18
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 19 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+inode type:: 0, size:: 64
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 testdir:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 2
+freeDatablockPos: 2
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 3
+freeDatablockPos: 3
+root inode type:: 0, size:: 128
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 4
+freeDatablockPos: 4
+root inode type:: 0, size:: 160
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 5
+freeDatablockPos: 5
+root inode type:: 0, size:: 192
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 6
+freeDatablockPos: 6
+root inode type:: 0, size:: 224
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 7
+freeDatablockPos: 7
+root inode type:: 0, size:: 256
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 8
+freeDatablockPos: 8
+root inode type:: 0, size:: 288
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 9
+freeDatablockPos: 9
+root inode type:: 0, size:: 320
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 10
+freeDatablockPos: 10
+root inode type:: 0, size:: 352
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 11
+freeDatablockPos: 11
+root inode type:: 0, size:: 384
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 12
+freeDatablockPos: 12
+root inode type:: 0, size:: 416
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 13
+freeDatablockPos: 13
+root inode type:: 0, size:: 448
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 14
+freeDatablockPos: 14
+root inode type:: 0, size:: 480
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 15
+freeDatablockPos: 15
+root inode type:: 0, size:: 512
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 16
+freeDatablockPos: 16
+root inode type:: 0, size:: 544
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 17
+freeDatablockPos: 17
+root inode type:: 0, size:: 576
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 18
+freeDatablockPos: 18
+root inode type:: 0, size:: 608
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 19
+freeDatablockPos: 19
+root inode type:: 0, size:: 640
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 20
+freeDatablockPos: 20
+root inode type:: 0, size:: 672
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 21
+freeDatablockPos: 21
+root inode type:: 0, size:: 704
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 22
+freeDatablockPos: 22
+root inode type:: 0, size:: 736
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 23
+freeDatablockPos: 23
+root inode type:: 0, size:: 768
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 24
+freeDatablockPos: 24
+root inode type:: 0, size:: 800
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 25
+freeDatablockPos: 25
+root inode type:: 0, size:: 832
+server:: reply
+server:: waiting...
+server:: read message [siz1 type:0]
+Successfully created file 19
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 20 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 20
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 21 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 21
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 22 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 22
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 23 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 23
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 24 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 24
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 25 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 25
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 26 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 26
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 27 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 27
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 28 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 28
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 29 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 29
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 30 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 30
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 31 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 31
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 32 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 32
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 33 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 33
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 34 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 34
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 35 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 35
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 36 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 36
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 37 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 37
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 38 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 38
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 39 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 39
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 40 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfullye:4164 contents:(6)]
+freeInodeblockPos: 26
+freeDatablockPos: 26
+root inode type:: 0, size:: 864
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 27
+freeDatablockPos: 27
+root inode type:: 0, size:: 896
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 28
+freeDatablockPos: 28
+root inode type:: 0, size:: 928
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 29
+freeDatablockPos: 29
+root inode type:: 0, size:: 960
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 30
+freeDatablockPos: 30
+root inode type:: 0, size:: 992
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 31
+freeDatablockPos: 31
+root inode type:: 0, size:: 1024
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 32
+freeDatablockPos: 32
+root inode type:: 0, size:: 1056
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 33
+freeDatablockPos: 33
+root inode type:: 0, size:: 1088
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 34
+freeDatablockPos: 34
+root inode type:: 0, size:: 1120
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 35
+freeDatablockPos: 35
+root inode type:: 0, size:: 1152
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 36
+freeDatablockPos: 36
+root inode type:: 0, size:: 1184
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 37
+freeDatablockPos: 37
+root inode type:: 0, size:: 1216
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 38
+freeDatablockPos: 38
+root inode type:: 0, size:: 1248
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 39
+freeDatablockPos: 39
+root inode type:: 0, size:: 1280
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 40
+freeDatablockPos: 40
+root inode type:: 0, size:: 1312
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 41
+freeDatablockPos: 41
+root inode type:: 0, size:: 1344
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 42
+freeDatablockPos: 42
+root inode type:: 0, size:: 1376
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 43
+freeDatablockPos: 43
+root inode type:: 0, size:: 1408
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 44
+freeDatablockPos: 44
+root inode type:: 0, size:: 1440
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 45
+freeDatablockPos: 45
+root inode type:: 0, size:: 1472
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 46
+freeDatablockPos: 46
+root inode type:: 0, size:: 1504
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 47
+freeDatablockPos: 47
+root inode type:: 0, size:: 1536
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 48
+freeDatablockPos: 48
+root inode type:: 0, size:: 1568
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 49
+freeDatablockPos: 49
+root inode type:: 0, size:: 1600
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 50
+freeDatablockPos: 50
+root inode type:: 0, size:: 1632
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 51
+freeDatablockPos: 51
+root inode type:: 0, size:: 1664
+server:: reply
+server:: waiting...
+server:: read messa created file 40
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 41 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 41
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 42 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 42
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 43 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 43
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 44 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 44
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 45 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 45
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 46 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 46
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 47 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 47
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 48 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 48
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 49 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 49
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 50 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 50
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 51 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 51
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 52 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 52
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 53 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 53
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 54 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 54
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 55 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 55
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 56 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 56
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 57 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 57
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 58 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 58
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 59 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 59
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 60 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 60
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 61 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 61
+Succege [size:4164 contents:(6)]
+freeInodeblockPos: 52
+freeDatablockPos: 52
+root inode type:: 0, size:: 1696
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 53
+freeDatablockPos: 53
+root inode type:: 0, size:: 1728
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 54
+freeDatablockPos: 54
+root inode type:: 0, size:: 1760
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 55
+freeDatablockPos: 55
+root inode type:: 0, size:: 1792
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 56
+freeDatablockPos: 56
+root inode type:: 0, size:: 1824
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 57
+freeDatablockPos: 57
+root inode type:: 0, size:: 1856
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 58
+freeDatablockPos: 58
+root inode type:: 0, size:: 1888
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 59
+freeDatablockPos: 59
+root inode type:: 0, size:: 1920
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 60
+freeDatablockPos: 60
+root inode type:: 0, size:: 1952
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 61
+freeDatablockPos: 61
+root inode type:: 0, size:: 1984
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 62
+freeDatablockPos: 62
+root inode type:: 0, size:: 2016
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 63
+freeDatablockPos: 63
+root inode type:: 0, size:: 2048
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 64
+freeDatablockPos: 64
+root inode type:: 0, size:: 2080
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 65
+freeDatablockPos: 65
+root inode type:: 0, size:: 2112
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 66
+freeDatablockPos: 66
+root inode type:: 0, size:: 2144
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 67
+freeDatablockPos: 67
+root inode type:: 0, size:: 2176
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 68
+freeDatablockPos: 68
+root inode type:: 0, size:: 2208
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 69
+freeDatablockPos: 69
+root inode type:: 0, size:: 2240
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 70
+freeDatablockPos: 70
+root inode type:: 0, size:: 2272
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 71
+freeDatablockPos: 71
+root inode type:: 0, size:: 2304
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 72
+freeDatablockPos: 72
+root inode type:: 0, size:: 2336
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 73
+freeDatablockPos: 73
+root inode type:: 0, size:: 2368
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 74
+freeDatablockPos: 74
+root inode type:: 0, size:: 2400
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 75
+freeDatablockPos: 75
+root inode type:: 0, size:: 2432
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 76
+freeDatablockPos: 76
+root inode type:: 0, size:: 2464
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 77
+freeDatablockPos: 77
+root inode type:: 0, size:: 2496
+server:: reply
+server:: waiting...
+server:ssfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 62 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 62
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 63 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 63
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 64 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 64
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 65 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 65
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 66 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 66
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 67 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 67
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 68 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 68
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 69 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 69
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 70 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 70
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 71 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 71
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 72 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 72
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 73 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 73
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 74 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 74
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 75 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 75
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 76 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 76
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 77 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 77
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 78 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 78
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 79 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 79
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 80 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 80
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 81 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 81
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 82 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 82
+Successfully created file  : read message [size:4164 contents:(6)]
+freeInodeblockPos: 78
+freeDatablockPos: 78
+root inode type:: 0, size:: 2528
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 79
+freeDatablockPos: 79
+root inode type:: 0, size:: 2560
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 80
+freeDatablockPos: 80
+root inode type:: 0, size:: 2592
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 81
+freeDatablockPos: 81
+root inode type:: 0, size:: 2624
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 82
+freeDatablockPos: 82
+root inode type:: 0, size:: 2656
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 83
+freeDatablockPos: 83
+root inode type:: 0, size:: 2688
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 84
+freeDatablockPos: 84
+root inode type:: 0, size:: 2720
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 85
+freeDatablockPos: 85
+root inode type:: 0, size:: 2752
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 86
+freeDatablockPos: 86
+root inode type:: 0, size:: 2784
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 87
+freeDatablockPos: 87
+root inode type:: 0, size:: 2816
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 88
+freeDatablockPos: 88
+root inode type:: 0, size:: 2848
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 89
+freeDatablockPos: 89
+root inode type:: 0, size:: 2880
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 90
+freeDatablockPos: 90
+root inode type:: 0, size:: 2912
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 91
+freeDatablockPos: 91
+root inode type:: 0, size:: 2944
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 92
+freeDatablockPos: 92
+root inode type:: 0, size:: 2976
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 93
+freeDatablockPos: 93
+root inode type:: 0, size:: 3008
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 94
+freeDatablockPos: 94
+root inode type:: 0, size:: 3040
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 95
+freeDatablockPos: 95
+root inode type:: 0, size:: 3072
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 96
+freeDatablockPos: 96
+root inode type:: 0, size:: 3104
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 97
+freeDatablockPos: 97
+root inode type:: 0, size:: 3136
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 98
+freeDatablockPos: 98
+root inode type:: 0, size:: 3168
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 99
+freeDatablockPos: 99
+root inode type:: 0, size:: 3200
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 100
+freeDatablockPos: 100
+root inode type:: 0, size:: 3232
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 101
+freeDatablockPos: 101
+root inode type:: 0, size:: 3264
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 102
+freeDatablockPos: 102
+root inode type:: 0, size:: 3296
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 103
+freeDatablockPos: 103
+root inode type:: 0, size:: 3328
+server:: reply
+server:with rc:: 1
+MFS_Creat pinum :: 1 path:: 83 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 83
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 84 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 84
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 85 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 85
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 86 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 86
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 87 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 87
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 88 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 88
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 89 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 89
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 90 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 90
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 91 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 91
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 92 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 92
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 93 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 93
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 94 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 94
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 95 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 95
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 96 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 96
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 97 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 97
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 98 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 98
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 99 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 99
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 100 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 100
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 101 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 101
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 102 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 102
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 103 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 103
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 104 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 104
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 105 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 105
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 106 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 106
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 107 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 107
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 108 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 108
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 109 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 109
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 110 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 110
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 111 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 111
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 112 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 112
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 113 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 113
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 114 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 114
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 115 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 115
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 116 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 116
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 117 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 117
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 118 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 118
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 119 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 119
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 120 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 120
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 121 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 121
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 122 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 122
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 123 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 123
+Successfully created file  with rc:: 1
+MFS_Creat pinum :: 1 path:: 124 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 124
+Successfully created : waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 104
+freeDatablockPos: 104
+root inode type:: 0, size:: 3360
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 105
+freeDatablockPos: 105
+root inode type:: 0, size:: 3392
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 106
+freeDatablockPos: 106
+root inode type:: 0, size:: 3424
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 107
+freeDatablockPos: 107
+root inode type:: 0, size:: 3456
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 108
+freeDatablockPos: 108
+root inode type:: 0, size:: 3488
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 109
+freeDatablockPos: 109
+root inode type:: 0, size:: 3520
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 110
+freeDatablockPos: 110
+root inode type:: 0, size:: 3552
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 111
+freeDatablockPos: 111
+root inode type:: 0, size:: 3584
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 112
+freeDatablockPos: 112
+root inode type:: 0, size:: 3616
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 113
+freeDatablockPos: 113
+root inode type:: 0, size:: 3648
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 114
+freeDatablockPos: 114
+root inode type:: 0, size:: 3680
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 115
+freeDatablockPos: 115
+root inode type:: 0, size:: 3712
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 116
+freeDatablockPos: 116
+root inode type:: 0, size:: 3744
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 117
+freeDatablockPos: 117
+root inode type:: 0, size:: 3776
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 118
+freeDatablockPos: 118
+root inode type:: 0, size:: 3808
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 119
+freeDatablockPos: 119
+root inode type:: 0, size:: 3840
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 120
+freeDatablockPos: 120
+root inode type:: 0, size:: 3872
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 121
+freeDatablockPos: 121
+root inode type:: 0, size:: 3904
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 122
+freeDatablockPos: 122
+root inode type:: 0, size:: 3936
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 123
+freeDatablockPos: 123
+root inode type:: 0, size:: 3968
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 124
+freeDatablockPos: 124
+root inode type:: 0, size:: 4000
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 125
+freeDatablockPos: 125
+root inode type:: 0, size:: 4032
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 126
+freeDatablockPos: 126
+root inode type:: 0, size:: 4064
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 127
+freeDatablockPos: 127
+root inode type:: 0, size:: 4096
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 0:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 1:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 2:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 3:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 4:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 5:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 6:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 7:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 8:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 9:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 10:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 11:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 12:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 13:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 14:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 15:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 16:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 17:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 18:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 19:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 20:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 21:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 22:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 23:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 24:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 25:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 26:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 27:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 28:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 29:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 30:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 31:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 32:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 33:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 34:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 35:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 36:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookfile  with rc:: 1
+MFS_Creat pinum :: 1 path:: 125 type:: 1 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 125
+Successfully created file  with rc:: 1
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+clientup server ---4096 0 37:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 38:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 39:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 40:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 41:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 42:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 43:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 44:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 45:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 46:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 47:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 48:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 49:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 50:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 51:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 52:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 53:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 54:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 55:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 56:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 57:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 58:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 59:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 60:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 61:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 62:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 63:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 64:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 65:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 66:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 67:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 68:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 69:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 70:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 71:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 72:
+server:: rep:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rly
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 73:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 74:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 75:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 76:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 77:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 78:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 79:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 80:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 81:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 82:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 83:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 84:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 85:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 86:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 87:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 88:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 89:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 90:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 91:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 92:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 93:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 94:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 95:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 96:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 97:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 98:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 99:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 100:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 101:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 102:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 103:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 104:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 105:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 106:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 107:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 108:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 109:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 110:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 111:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 112:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 113:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 114:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 115:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 116:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 117:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 118:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 119:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 120:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 121:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 122:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 123:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 124:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---4096 0 125:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test bigdir PASSED
+ (create a directory with 126 files)
+
+('starting', 'deep')
+
+**********************************************************************
+
+Test deep
+create many deeply nested directories
+
+**********************************************************************
+total blocks        39
+  inodes            128 [size of each: 128]
+  data blocks       32
+layout details
+  inode bitmap address/len 1 [1]
+  data bitmap address/len  2 [1]
+Starting server on port 7210
+/tmp/tmpF_kL9Q/p/server 7210 /home/girish/p4/p4/test.img
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 1
+freeDatablockPos: 1
+inode type:: 0, size:: 64
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 testdir:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 2
+freeDatablockPos: 2
+inode type:: 0, size:: 64
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 0:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 3
+freeDatablockPos: 3
+inode type:: 0, size:: 64
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 1:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 4
+freeDatablockPos: 4
+inode type:: 0, size:: 64
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 2:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(6)]
+freeInodeblockPos: 5
+freeDatablockPos: 5
+inode type:: 0, size:: 64
+root inode type:: 0, size:: 96
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 3:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 testdir:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 0:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 1:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 2:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(2)]
+Hi in lookup server ---96 0 3:
+server:: reply
+server:: waiting...
+server:: read message [size:4164 contents:(8)]
+server:: reply
+Shutting down serverMFS Init2 localhost 7210
+MFS_Creat pinum :: 0 path:: testdir type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:0 type:0]
+Successfully created file testdir
+Successfully created file  with rc:: 0
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+MFS_Creat pinum :: 1 path:: 0 type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 0
+Successfully created file  with rc:: 1
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+MFS_Creat pinum :: 2 path:: 1 type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 1
+Successfully created file  with rc:: 1
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+MFS_Creat pinum :: 3 path:: 2 type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 2
+Successfully created file  with rc:: 1
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+MFS_Creat pinum :: 4 path:: 3 type:: 0 
+client:: send message 6
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+Successfully created file 3
+Successfully created file  with rc:: 1
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 2
+client:: wait for reply...
+client:: got reply [ rc:1 type:0]
+client:: send message 8
+client:: wait for reply...
+client:: got reply [ rc:1 type:8]
+Server shutdown successful
+
+
+test deep PASSED
+ (create many deeply nested directories)
+
+**********************************************************************
+Summary:
+test build PASSED
+ (build project using make)
+
+test shutdown PASSED
+ (init server and client then call shutdown)
+
+test creat PASSED
+ (creat a file and check with lookup)
+
+test write PASSED
+ (write then read one block)
+
+test stat PASSED
+ (stat a regular file)
+
+test overwrite PASSED
+ (overwrite a block)
+
+test maxfile PASSED
+ (write largest possible file)
+
+test maxfile2 PASSED
+ (write more blocks than possible)
+
+test dir1 PASSED
+ (check root for dot entries)
+
+test dir2 PASSED
+ (create a new directory and check it)
+
+test baddir PASSED
+ (try to create a file with a file parent inode)
+
+test baddir2 PASSED
+ (try to lookup a file with a file parent inode)
+
+test unlink FAILED
+ (unlink a file)
+ MFS_Lookup should fail on an unlinked file
+
+test unlink2 FAILED
+ (unlink a directory)
+ MFS_Lookup should fail on an unlinked file
+
+test empty FAILED
+ (unlink a non-empty directory)
+ MFS_Unlink should fail on non-empty dir
+
+test name PASSED
+ (name too long)
+
+test persist PASSED
+ (restart server after creating a file)
+
+test bigdir PASSED
+ (create a directory with 126 files)
+
+test deep PASSED
+ (create many deeply nested directories)
+
+Passed 16 of 19 tests.
+Overall 16 of 19
